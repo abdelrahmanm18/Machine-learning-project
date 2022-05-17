@@ -1,0 +1,106 @@
+using System;
+
+
+namespace demo;
+ 
+
+class program
+{
+    static void Main(string[] args)
+    {
+        Dictionary<string, string> TokensRet = new Dictionary<string, string>();
+
+        TokensRet.Add("Type", "Class_sym");
+        TokensRet.Add("Infer", "Inheritance_sym");
+        TokensRet.Add("If", "If_sym");
+        TokensRet.Add("Else", "Else_sym");
+        TokensRet.Add("Ipok", "Integer_sym");
+        TokensRet.Add("Sipok", "SInteger_sum");
+        TokensRet.Add("Craf", "Character_sym");
+        TokensRet.Add("Sequance", "String_sym");
+        TokensRet.Add("Ipokf", "Float_sym");
+        TokensRet.Add("Sipokf", "SFloat_sym");
+        TokensRet.Add("Valueless", "Void_sym");
+        TokensRet.Add("Rational", "Boolean_sym");
+        TokensRet.Add("Endthis", "Break_sym");
+        TokensRet.Add("However", "HLoop_sym");
+        TokensRet.Add("When", "WLoop_sym");
+        TokensRet.Add("Respondwith", "Return_sym");
+        TokensRet.Add("Srap", "Struct_sym");
+        TokensRet.Add("Scan", "Switch_s_sym");
+        TokensRet.Add("Conditionof", "Switch_c_sym");
+        TokensRet.Add("@", "Start_@_sym");
+        TokensRet.Add("^", "Start_^_sym");
+        TokensRet.Add("$", "End_$_sym");
+        TokensRet.Add("#", "End_#_sym");
+        TokensRet.Add("+", "Sum_sym");
+        TokensRet.Add("-", "Sup_sym");
+        TokensRet.Add("*", "Mult_sym");
+        TokensRet.Add("/", "Divide_sym");
+        TokensRet.Add("&&", "And_Gate_sym");
+        TokensRet.Add("||", "Or_Gate_sym");
+        TokensRet.Add("~", "Exor_Gate_sym");
+        TokensRet.Add("==", "Equality_sym");
+        TokensRet.Add("<", "Smaller_sym");
+        TokensRet.Add(">", "Greater_sym");
+        TokensRet.Add("!=", "Notequal_sym");
+        TokensRet.Add("<=", "SmallerOrEqaul_sym");
+        TokensRet.Add(">=", "GreaterOrEqual_sym");
+        TokensRet.Add("=", "Assignment_sym");
+        TokensRet.Add("->", "Access_sym");
+        TokensRet.Add("{", "LeftCurly_sym");
+        TokensRet.Add("}", "RightCurly_sym");
+        TokensRet.Add("[", "LeftSquar_sym");
+        TokensRet.Add("]", "RightSquar_sym");
+        TokensRet.Add("(", "LeftBraces_sym");
+        TokensRet.Add(")", "RightBraces-sym");
+        TokensRet.Add("'", "Quote_sym");
+        TokensRet.Add("\"", "DoubleQuote_sym");
+        TokensRet.Add("Require", "Inclusion_sym");
+        TokensRet.Add("</", "LeftComm_sym");
+        TokensRet.Add("/>", "RightComm_sym");
+        TokensRet.Add("***", "Comm_sym");
+
+
+        Console.WriteLine("Please enter file path:");
+        string filePath = Console.ReadLine();
+
+        List<string> codeLines = new List<string>();
+
+        StreamReader lines = new StreamReader(filePath);
+
+        String str = lines.ReadLine();
+
+        if(str != null)
+        {
+            codeLines.Add(str);
+            while(true)
+            {
+                str = lines.ReadLine();
+                if (str == null)
+                {
+                    break;
+                }
+                codeLines.Add(str);
+                
+            }
+        }
+
+        List<string> tokens = new List<string>();
+
+        foreach(string line in codeLines)
+        {
+            String[] strs = line.Split(' ');
+            foreach (String t in strs )
+            {
+                tokens.Add(t);
+            }
+        }
+
+        foreach(String t in tokens)
+        {
+            Console.WriteLine(t);
+        }
+  
+    }
+}
